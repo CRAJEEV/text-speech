@@ -1,3 +1,5 @@
-Flask
-gTTS
-flask-cors
+Flask==2.0.1
+Flask-SQLAlchemy==2.5.1
+Werkzeug==2.0.1
+gtts==2.2.3
+SpeechRecognition==3.8.1

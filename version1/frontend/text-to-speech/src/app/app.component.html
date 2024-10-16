@@ -1,0 +1,33 @@
+<div>
+  <h1>Text to Speech Converter</h1>
+
+  <div>
+    <textarea [(ngModel)]="text" placeholder="Enter text to convert"></textarea>
+  </div>
+
+  <div>
+    <select [(ngModel)]="voice">
+      <option value="en">English</option>
+      <option value="fr">French</option>
+      <option value="es">Spanish</option>
+      <!-- Add more language options as needed -->
+    </select>
+  </div>
+
+  <button (click)="convertTextToSpeech()">Convert to Speech</button>
+
+  <h2>Generated Audio Files</h2>
+  <ul>
+    <li *ngFor="let file of files">
+      {{ file }}
+      <button (click)="playFile(file)">Play</button>
+      <button (click)="deleteFile(file)">Delete</button>
+    </li>
+  </ul>
+
+  <audio *ngIf="audioSrc" [src]="audioSrc" controls></audio>
+
+  <h2>Speech to Text</h2>
+  <button (click)="startRecording()" [disabled]="isRecording">Start Recording</button>
+  <button (click)="stopRecording()" [disabled]="!isRecording">Stop Recording</button>
+</div>
